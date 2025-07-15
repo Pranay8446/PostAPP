@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
 mongoose
-.connect(`${config.get("MONGODB_URI")}/ecommerce`)
-.then(()=>{
-    dbgr("connet")
-})
-.catch((err)=>{
-    dbgr(err);
-})
+  .connect(`${process.env.MONGO_URI}/postapp`)
+  .then(() => {
+    console.log("MongoDB connected");
+  })
+  .catch((err) => {
+    console.error("MongoDB connection error:", err);
+  });
 
 const userSchema = mongoose.Schema({
     username : String,
